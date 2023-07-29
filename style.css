@@ -1,9 +1,41 @@
 body {
-    background-color: antiquewhite;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 h2 {
     color: blue;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
+}
+
+.calculator {
+
+    width: 400px;
+    border: 1px solid #11558d;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    border-radius: 10px;
+}
+
+.display {
+    grid-column: 1 / -1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+.button {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: rgb(199, 193, 193);
 }

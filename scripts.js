@@ -39,4 +39,4 @@ function calculator(num1, operator, num2){
     };
 };
 //result 
-console.log(calculator(2,'/', 0));
+console.log(calculator(2.5,'/', 1.5));
