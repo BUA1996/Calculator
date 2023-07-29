@@ -1,6 +1,9 @@
 console.log("baron");
 //display update
 let displayValue = "0";
+let num1 = null;
+let num2 = null;
+let operator = null;
 
 function updateDisplay(){
     const display = document.getElementById("display");
@@ -16,49 +19,47 @@ function appendToDisplay(value){
     updateDisplay();
 };
 
-let num1 = 0;
-let num2 = 0;
-let operator = "";
-function calculator(num1, operator, num2){
-    if (operator === '+'){
-        //add
-        function add(num1, num2){
-        const sum = num1 + num2;
-        return sum;
-        };
-        return add(num1, num2);
-        //console.log(add(3,7));
-    } else if (operator === '-'){
-        //subtract
-        function subtract(num1, num2){
-        const difference = num1 - num2;
-        return difference;
-        };
-        return subtract(num1, num2);
-        //console.log(subtract(10, 3));
-    } else if (operator === '/'){
-        //division
-        function division(num1, num2){
-        const divide = num1 / num2;
-        return divide;
-        };
-        return division(num1, num2);
-        //console.log(division(10, 5));
-    } else if (operator === '*'){
-        //miltiply
-        function multiply(num1, num2){
-        const mul = num1 * num2;
-        return mul;
-        };
-        return multiply(num1, num2);
-        //console.log(multiply(2,2));
-    };
+function setOperator(selectedOperator){
+    if (num1 === null){
+        num1 = Number(displayValue);
+        operator = selectedOperator;
+        displayValue = "0";
+    }
 };
-//result 
-console.log(calculator(2.5,'/', 1.5));
 
-//display
+function calculate(){
+    if (num1 !== null && operator !== null && num2 === null){
+        num2 = Number(displayValue);
+        let result;
+
+        if (operator === '+'){
+            //add
+            result = num1 + num2;
+        } else if (operator === '-'){
+            //subtract
+            result = num1 - num2;
+        } else if (operator === '/'){
+            //division
+            result = num1 / num2;
+        } else if (operator === '*'){
+            //miltiply
+            result = num1 * num2;
+        }
+
+        displayValue = result.toString();
+        num1 = result;
+        operator = null;
+        num2 = null;
+        updateDisplay();
+    }
+};
+
+
+//clear display
 function clearDisplay(){
     displayValue = "0";
+    num1 = null;
+    num2 = null;
+    operator = null;
     updateDisplay();
 };
