@@ -1,4 +1,20 @@
 console.log("baron");
+//display update
+let displayValue = "0";
+
+function updateDisplay(){
+    const display = document.getElementById("display");
+    display.textContent = displayValue;
+};
+
+function appendToDisplay(value){
+    if (displayValue === "0"){
+        displayValue = value;
+    } else {
+        displayValue += value;
+    }
+    updateDisplay();
+};
 
 let num1 = 0;
 let num2 = 0;
@@ -40,3 +56,9 @@ function calculator(num1, operator, num2){
 };
 //result 
 console.log(calculator(2.5,'/', 1.5));
+
+//display
+function clearDisplay(){
+    displayValue = "0";
+    updateDisplay();
+};
